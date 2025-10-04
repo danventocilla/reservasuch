@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Reservas - Actividades Culturales</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container mt-5">
+    <div class="card shadow">
+      <div class="card-header bg-primary text-white">
+        <h4>Registro de Reserva Cultural</h4>
+      </div>
+      <div class="card-body">
+        <form id="reservaForm" class="row g-3">
+          
+          <!-- que el usuario ingrese su nombre completo -->
+          <div class="col-md-6">
+            <label class="form-label">Nombres Completos</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Ej: Dayron Andres Ventocilla" required>
+          </div>
+
+          <!-- que ingrese su numero de matricula con 8 digitos alfanumericos -->
+          <div class="col-md-6">
+            <label class="form-label">Código de Matrícula</label>
+            <input type="text" id="matricula" class="form-control" maxlength="8" placeholder="Ej: DAYV2022" required>
+          </div>
+
+          <!-- que ingrese su numero de contacto -->
+          <div class="col-md-6">
+            <label class="form-label">Número de Contacto</label>
+            <input type="text" id="contacto" class="form-control" maxlength="9" placeholder="Ej: 987654321" required>
+          </div>
+
+          <!-- que ingrese su correo uch -->
+          <div class="col-md-6">
+            <label class="form-label">Correo UCH</label>
+            <input type="email" id="correo" class="form-control" placeholder="Ej: nomapellidoap@uch.pe" required>
+          </div>
+
+          <!-- listado de actividades a reservar -->
+          <div class="col-md-6">
+            <label class="form-label">Actividad Cultural</label>
+            <select id="actividad" class="form-select" required>
+              <option value="">Seleccione una actividad</option>
+              <option>Sala de Teatro</option>
+              <option>Sala de Taller de Dibujo</option>
+              <option>Club de Lectura</option>
+              <option>Excursión Cultural</option>
+              <option>Sala de Danza</option>
+              <option>Campo de Fútbol</option>
+              <option>Campo de Vóley</option>
+            </select>
+          </div>
+
+          <!-- que ingrese la fecha de la reserva  -->
+          <div class="col-md-6">
+            <label class="form-label">Fecha</label>
+            <input type="date" id="fecha" class="form-control" required>
+          </div>
+
+          <!-- hora de inicio de la reserva -->
+          <div class="col-md-6">
+            <label class="form-label">Hora de Inicio</label>
+            <input type="time" id="horaInicio" class="form-control" required min="08:15" max="19:00" step="900">
+          </div>
+
+          <!-- tiempo de duración de la reserva (máximo 3 horas) -->
+          <div class="col-md-6">
+            <label class="form-label">Tiempo de Duración (horas)</label>
+            <select id="duracion" class="form-select" required>
+              <option value="">Seleccione duración</option>
+              <option value="1">1 hora</option>
+              <option value="2">2 horas</option>
+              <option value="3">3 horas</option>
+            </select>
+          </div>
+
+          <!-- documento a entregar -->
+          <div class="col-md-6">
+            <label class="form-label">Documento a Entregar (Obligatorio)</label>
+            <select id="documento" class="form-select" required>
+              <option value="">Seleccione un documento</option>
+              <option value="dni">DNI</option>
+              <option value="carnet universitario">Carnet Universitario</option>
+            </select>
+          </div>
+
+          <!-- número documento -->
+          <div class="col-md-6">
+            <label class="form-label">Número del Documento</label>
+            <input type="text" id="numDoc" class="form-control" placeholder="Ej: 76543210" maxlength="8" required>
+          </div>
+
+          <!-- botones -->
+          <div class="col-12">
+            <button type="submit" class="btn btn-success">Registrar Reserva</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- listado -->
+    <div class="card mt-4 shadow">
+      <div class="card-header bg-secondary text-white">
+        <h5>Listado de Reservas</h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Matrícula</th>
+              <th>Contacto</th>
+              <th>Correo</th>
+              <th>Actividad</th>
+              <th>Fecha</th>
+              <th>Hora Inicio</th>
+              <th>Duración</th>
+              <th>Documento</th>
+              <th>N° Documento</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaReservas"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
